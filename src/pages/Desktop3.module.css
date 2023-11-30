@@ -1,0 +1,123 @@
+/* Default styles for all devices */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: -15px;
+}
+
+.td, .cellWithButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #020000;
+}
+
+.td, .cellWithButton {
+  position: relative;
+}
+
+.cellWithButton button {
+  position: absolute;
+  right: 0;
+}
+
+
+.simulate {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 1px solid black;
+  font-size: 12px;
+  width: 70px;
+  height: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  align-items: end;
+}
+
+thead {
+  background-color: #d6cccc;
+  border: 1px solid #020000;
+}
+
+th, td {
+  border: 1.5px solid #020000;
+  padding: 8px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+h2 {
+  margin-top: 40px;
+  font-size: 25px;
+}
+
+h2, h4 {
+  font-family: sans-serif;
+}
+
+input {
+  width: 80px;
+  padding: 5px;
+  border: 1.75px solid #000000;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  text-align: center;
+  background-color: var(--color-black);
+}
+
+h1, button, #simulate {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+button {
+  margin-top: 20px;
+  margin-left: 295px;
+  margin-right: auto;
+  cursor: pointer;
+  width: 160px;
+  height: 40px;
+  border-radius: 8px;
+  background: #d6cccc;
+  font-family: Secular One;
+  font-size: 18px;
+}
+
+.left_panel {
+  width: 40%;
+  margin-top: 20px;
+  margin-left: 5%;
+  position: fixed;
+}
+
+.left_panel1 {
+  width: 40%;
+  margin-top: 360px;
+  margin-left: 5%;
+  position: fixed;
+}
+
+.right_panel {
+  width: 45%;
+  margin-right: 5%;
+  float: right;
+  margin-top: -45px;
+}
+
+.vectorIcon {
+  position: fixed;
+  cursor: pointer;
+  height: 6%;
+  width: 3%;
+  margin-top: 10px;
+  margin-left: 10px;
+  left: 15px;
+  max-width: 100%;
+}
+
