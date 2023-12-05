@@ -1,10 +1,10 @@
 import React, { useCallback, useRef, useState } from "react";
 import styles from "./Desktop2.module.css";
-import { useNavigate } from "react-router-dom";  // Import useNavigate
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 
 const Desktop2 = () => {
-  const navigate = useNavigate();  // Use the useNavigate hook
+  const navigate = useNavigate(); // Use the useNavigate hook
   const fileInputRef = useRef(null);
   const [selectedFileName, setSelectedFileName] = useState(null);
   const [calculationDone, setCalculationDone] = useState(false); // Track calculation status
@@ -16,9 +16,9 @@ const Desktop2 = () => {
   const [isUploaded, setIsUploaded] = useState(false);
 
   const onVectorClick = useCallback(() => {
-    navigate("/desktop-1");
+    navigate("/");
   }, [navigate]);
-  
+
   const onUploadButtonClick = () => {
     fileInputRef.current.click();
   };
@@ -87,72 +87,87 @@ const Desktop2 = () => {
     navigate("/desktop-3");
   }, [navigate]);
 
- 
-
   return (
     <>
-    <div className={styles.desktop2}>
-    <img className={styles.vectorIcon} alt="" src="/vector.png"  onClick={onVectorClick} />
-      <img className={styles.cards1Icon} alt="" src="/cards1@2x.png" />
-      <div className={styles.step1UploadThe}>Step-1 Upload the input file</div>
-      <div className={styles.desktop2Child} onClick={onUploadButtonClick}/>
-      <div
-        className={styles.upload}
-        onClick={onUploadButtonClick}
-      >
-        Upload
-      </div>
-      {isUploading ? (
-        <div className={styles.uploadprogress}>
-          <div>{uploadPercentage}</div>
-          <img src="hourglass.gif" width="40" height="40" />
-        </div>
-      ) : (
-        <></>
-      )}
-      <form encType="multipart/form-data" style={{ display: "flex" }}>
-        <input
-          id="fileInput"
-          type="file"
-          accept=".csv"
-          style={{ display: "none" }}
-          onChange={handleFileChange}
-          ref={fileInputRef}
+      <div className={styles.desktop2}>
+        <img
+          className={styles.vectorIcon}
+          alt=""
+          src="/vector.png"
+          onClick={onVectorClick}
         />
-      </form>
+        <img className={styles.cards1Icon} alt="" src="/cards1@2x.png" />
+        <div className={styles.step1UploadThe}>
+          Step-1 Upload the input file
+        </div>
+        <div className={styles.desktop2Child} onClick={onUploadButtonClick} />
+        <div className={styles.upload} onClick={onUploadButtonClick}>
+          Upload
+        </div>
+        {isUploading ? (
+          <div className={styles.uploadprogress}>
+            <div>{uploadPercentage}</div>
+            <img src="hourglass.gif" width="40" height="40" />
+          </div>
+        ) : (
+          <></>
+        )}
+        <form encType="multipart/form-data" style={{ display: "flex" }}>
+          <input
+            id="fileInput"
+            type="file"
+            accept=".csv"
+            style={{ display: "none" }}
+            onChange={handleFileChange}
+            ref={fileInputRef}
+          />
+        </form>
 
-      {isUploaded ? (
-        <>
-          <div
-            className={styles.step2GenerateThe}
-            onClick={() => onCalculateButtonClick()}
-          >
-            Step-2 Generate the three years projection of metrics
-          </div>
-          <div className={styles.desktop2Item} onClick={() => onCalculateButtonClick()} />
-          <div className={styles.generate} onClick={() => onCalculateButtonClick()}>Generate</div>
-        </>
-      ) : (
-        <></>
-      )}
+        {isUploaded ? (
+          <>
+            <div
+              className={styles.step2GenerateThe}
+              onClick={() => onCalculateButtonClick()}>
+              Step-2 Generate the three years projection of metrics
+            </div>
+            <div
+              className={styles.desktop2Item}
+              onClick={() => onCalculateButtonClick()}
+            />
+            <div
+              className={styles.generate}
+              onClick={() => onCalculateButtonClick()}>
+              Generate
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
 
-      {isStepsVisible ? (
-        <>
-          <div className={styles.step3DownloadThe}>
-            Step-3 Download the output file
-          </div>
-          <div className={styles.desktop2Inner} onClick={onDownloadButtonClick} />
-          <div className={styles.download} onClick={onDownloadButtonClick}>Download</div>
-          <div className={styles.step4CreateThe}>
-            Step-4 Create the summary table
-          </div>
-          <div className={styles.rectangleDiv} />
-          <div className={styles.summarize} onClick={onSummarizeClick}>Summarize</div>
-        </>
-      ) : (
-        <></>
-      )}
-    </div>
+        {isStepsVisible ? (
+          <>
+            <div className={styles.step3DownloadThe}>
+              Step-3 Download the output file
+            </div>
+            <div
+              className={styles.desktop2Inner}
+              onClick={onDownloadButtonClick}
+            />
+            <div className={styles.download} onClick={onDownloadButtonClick}>
+              Download
+            </div>
+            <div className={styles.step4CreateThe}>
+              Step-4 Create the summary table
+            </div>
+            <div className={styles.rectangleDiv} />
+            <div className={styles.summarize} onClick={onSummarizeClick}>
+              Summarize
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
     </>
   );
 };

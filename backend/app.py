@@ -15,6 +15,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/uploads', methods=['POST'])
 def upload_file():
+    print(request)
     if 'file' not in request.files:
         return 'No file part'
     

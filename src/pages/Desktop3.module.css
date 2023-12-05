@@ -5,14 +5,15 @@ table {
   margin-top: -15px;
 }
 
-.td, .cellWithButton {
+.td,
+.cellWithButton {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #020000;
 }
 
-.td, .cellWithButton {
+.td,
+.cellWithButton {
   position: relative;
 }
 
@@ -21,19 +22,21 @@ table {
   right: 0;
 }
 
-
 .simulate {
   color: rgb(0, 0, 0);
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   border-radius: 1px solid black;
   font-size: 12px;
-  width: 70px;
-  height: 20px;
+  width: 120px;
+  height: 36px;
   margin: 4px 2px;
   cursor: pointer;
   align-items: end;
+  position: absolute;
+  right: 80pt;
+  top: 3pt;
 }
 
 thead {
@@ -41,7 +44,8 @@ thead {
   border: 1px solid #020000;
 }
 
-th, td {
+th,
+td {
   border: 1.5px solid #020000;
   padding: 8px;
   text-align: center;
@@ -53,7 +57,8 @@ h2 {
   font-size: 25px;
 }
 
-h2, h4 {
+h2,
+h4 {
   font-family: sans-serif;
 }
 
@@ -71,7 +76,9 @@ input {
   background-color: var(--color-black);
 }
 
-h1, button, #simulate {
+h1,
+button,
+#simulate {
   text-align: center;
   font-family: sans-serif;
 }
@@ -91,7 +98,7 @@ button {
 
 .left_panel {
   width: 40%;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-left: 5%;
   position: fixed;
 }
@@ -111,13 +118,56 @@ button {
 }
 
 .vectorIcon {
-  position: fixed;
+  position: absolute;
   cursor: pointer;
+  z-index: 2;
   height: 6%;
   width: 3%;
-  margin-top: 10px;
-  margin-left: 10px;
-  left: 15px;
+  margin-top: 15px;
+  margin-left: 15px;
+  left: 10px;
   max-width: 100%;
 }
 
+.chartVectorIcon {
+  position: absolute;
+  cursor: pointer;
+  z-index: 2;
+  height: 6%;
+  width: 3%;
+  margin-top: 12pt;
+  margin-left: 10pt;
+  left: 10px;
+  max-width: 100%;
+}
+
+.bar1 {
+  padding: 20pt;
+}
+
+.barchild {
+  margin-bottom: 150pt;
+  display: flex;
+  height: 80vh;
+  width: 80vw;
+}
+
+.piechild {
+  justify-items: center;
+  display: block;
+  margin-top: 250pt;
+  margin-left: 30vw;
+  height: 80vh;
+  width: 80vw;
+}
+
+.piechild h2 {
+  font-family: Arial;
+  font-weight: 100;
+  justify-self: center;
+  margin-left: 15vw;
+}
+
+hr {
+  margin-top: 70pt;
+}

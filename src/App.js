@@ -31,9 +31,9 @@ function App() {
         metaDescription = "";
         break;
       case "/desktop-3":
-      title = "";
-      metaDescription = "";
-      break;
+        title = "";
+        metaDescription = "";
+        break;
       case "/desktop-2":
         title = "";
         metaDescription = "";
@@ -57,13 +57,15 @@ function App() {
     }
   }, [pathname]);
 
-  return <>
-    <Routes>
-      <Route path="/desktop-1" element={<Desktop1 />} />
-      <Route path="/desktop-2" element={<Desktop2 />} />
-      <Route path="/desktop-3" element={<Desktop3 />} />
-    </Routes>
-    {/* <Appy/> */}
-  </>
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Desktop1 />} />
+        <Route path="/desktop-2" element={<Desktop2 />} />
+        <Route path="/desktop-3" element={<Desktop3 />} />
+      </Routes>
+      {/* <Appy/> */}
+    </>
+  );
 }
 export default App;
