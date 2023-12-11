@@ -6,7 +6,7 @@ import axios from "axios";
 
 import BarGraphNum from "./BarGraphNum.tsx";
 import BarGraph from "./BarGraph.tsx";
-import { PieGraph } from "./PieGraph.tsx";
+import PieGraph from "./PieGraph.tsx";
 
 const Desktop3 = () => {
   const navigate = useNavigate();
@@ -82,6 +82,19 @@ const Desktop3 = () => {
   };
 
   const [data, setData] = useState({});
+
+  const NumberFormatUSD = (value) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 1,
+    }).format(value);
+
+  const NumberFormat = (value) =>
+    new Intl.NumberFormat("en-US", {
+      style: "decimal",
+    }).format(value);
 
   const fetchData = () => {
     axios
@@ -214,10 +227,10 @@ const Desktop3 = () => {
                   Internal Sales Summary (in $ Million)
                 </td>
                 {/* <td>Internal Sales Summary (in $ Million)</td> */}
-                <td>{data.internal_sales_summary_bs}</td>
-                <td>{data.internal_sales_summary_1}</td>
-                <td>{data.internal_sales_summary_2}</td>
-                <td>{data.internal_sales_summary_3}</td>
+                <td>{NumberFormatUSD(data.internal_sales_summary_bs)}</td>
+                <td>{NumberFormatUSD(data.internal_sales_summary_1)}</td>
+                <td>{NumberFormatUSD(data.internal_sales_summary_2)}</td>
+                <td>{NumberFormatUSD(data.internal_sales_summary_3)}</td>
               </tr>
 
               <tr>
@@ -225,10 +238,10 @@ const Desktop3 = () => {
                   External Sales Summary (in $ Million){" "}
                 </td>
                 {/* <td>External Sales Summary (in $ Million)</td> */}
-                <td>{data.external_sales_summary_bs}</td>
-                <td>{data.external_sales_summary_1}</td>
-                <td>{data.external_sales_summary_2}</td>
-                <td>{data.external_sales_summary_3}</td>
+                <td>{NumberFormatUSD(data.external_sales_summary_bs)}</td>
+                <td>{NumberFormatUSD(data.external_sales_summary_1)}</td>
+                <td>{NumberFormatUSD(data.external_sales_summary_2)}</td>
+                <td>{NumberFormatUSD(data.external_sales_summary_3)}</td>
               </tr>
 
               <tr>
@@ -236,10 +249,10 @@ const Desktop3 = () => {
                   Sales Summary (in $ Million){" "}
                 </td>
                 {/* <td>Sales Summary (in $ Million)</td> */}
-                <td>{data.sales_summary_bs}</td>
-                <td>{data.sales_summary_1}</td>
-                <td>{data.sales_summary_2}</td>
-                <td>{data.sales_summary_3}</td>
+                <td>{NumberFormatUSD(data.sales_summary_bs)}</td>
+                <td>{NumberFormatUSD(data.sales_summary_1)}</td>
+                <td>{NumberFormatUSD(data.sales_summary_2)}</td>
+                <td>{NumberFormatUSD(data.sales_summary_3)}</td>
               </tr>
 
               <tr>
@@ -256,10 +269,10 @@ const Desktop3 = () => {
                   ENR Summary (in $ Million){" "}
                 </td>
                 {/* <td>ENR Summary (in $ Million)</td> */}
-                <td>{data.enr_summary_bs}</td>
-                <td>{data.enr_summary_1}</td>
-                <td>{data.enr_summary_2}</td>
-                <td>{data.enr_summary_3}</td>
+                <td>{NumberFormatUSD(data.enr_summary_bs)}</td>
+                <td>{NumberFormatUSD(data.enr_summary_1)}</td>
+                <td>{NumberFormatUSD(data.enr_summary_2)}</td>
+                <td>{NumberFormatUSD(data.enr_summary_3)}</td>
               </tr>
 
               <tr>
@@ -267,10 +280,10 @@ const Desktop3 = () => {
                   ANR Summary (in $ Million){" "}
                 </td>
                 {/* <td>ANR Summary (in $ Million)</td> */}
-                <td>{data.anr_summary_bs}</td>
-                <td>{data.anr_summary_1}</td>
-                <td>{data.anr_summary_2}</td>
-                <td>{data.anr_summary_3}</td>
+                <td>{NumberFormatUSD(data.anr_summary_bs)}</td>
+                <td>{NumberFormatUSD(data.anr_summary_1)}</td>
+                <td>{NumberFormatUSD(data.anr_summary_2)}</td>
+                <td>{NumberFormatUSD(data.anr_summary_3)}</td>
               </tr>
 
               <tr>
@@ -278,10 +291,10 @@ const Desktop3 = () => {
                   Merchant Sales Summary (in $ Million){" "}
                 </td>
                 {/* <td>Merchant Sales Summary (in $ Million)</td> */}
-                <td>{data.merchant_sales_summary_bs}</td>
-                <td>{data.merchant_sales_summary_1}</td>
-                <td>{data.merchant_sales_summary_2}</td>
-                <td>{data.merchant_sales_summary_3}</td>
+                <td>{NumberFormatUSD(data.merchant_sales_summary_bs)}</td>
+                <td>{NumberFormatUSD(data.merchant_sales_summary_1)}</td>
+                <td>{NumberFormatUSD(data.merchant_sales_summary_2)}</td>
+                <td>{NumberFormatUSD(data.merchant_sales_summary_3)}</td>
               </tr>
 
               <tr>
@@ -300,10 +313,10 @@ const Desktop3 = () => {
                   Transaction Summary (in 1000){" "}
                 </td>
                 {/* <td>Transaction Summary (in 1000)</td> */}
-                <td>{data.transactions_k_summary_bs}</td>
-                <td>{data.transactions_k_summary_1}</td>
-                <td>{data.transactions_k_summary_2}</td>
-                <td>{data.transactions_k_summary_3}</td>
+                <td>{NumberFormat(data.transactions_k_summary_bs)}</td>
+                <td>{NumberFormat(data.transactions_k_summary_1)}</td>
+                <td>{NumberFormat(data.transactions_k_summary_2)}</td>
+                <td>{NumberFormat(data.transactions_k_summary_3)}</td>
               </tr>
 
               <tr>
@@ -311,10 +324,10 @@ const Desktop3 = () => {
                   Average Ticket Summary{" "}
                 </td>
                 {/* <td>Average Ticket Summary</td> */}
-                <td>{data.average_ticket_summary_bs}</td>
-                <td>{data.average_ticket_summary_1}</td>
-                <td>{data.average_ticket_summary_2}</td>
-                <td>{data.average_ticket_summary_3}</td>
+                <td>{NumberFormatUSD(data.average_ticket_summary_bs)}</td>
+                <td>{NumberFormatUSD(data.average_ticket_summary_1)}</td>
+                <td>{NumberFormatUSD(data.average_ticket_summary_2)}</td>
+                <td>{NumberFormatUSD(data.average_ticket_summary_3)}</td>
               </tr>
 
               <tr>
@@ -322,10 +335,10 @@ const Desktop3 = () => {
                   Sales per Active Summary{" "}
                 </td>
                 {/* <td>Sales per Active Summary</td> */}
-                <td>{data.sales_per_active_summary_bs}</td>
-                <td>{data.sales_per_active_summary_1}</td>
-                <td>{data.sales_per_active_summary_2}</td>
-                <td>{data.sales_per_active_summary_3}</td>
+                <td>{NumberFormatUSD(data.sales_per_active_summary_bs)}</td>
+                <td>{NumberFormatUSD(data.sales_per_active_summary_1)}</td>
+                <td>{NumberFormatUSD(data.sales_per_active_summary_2)}</td>
+                <td>{NumberFormatUSD(data.sales_per_active_summary_3)}</td>
               </tr>
 
               <tr>
@@ -333,37 +346,37 @@ const Desktop3 = () => {
                   Balance per Active Summary{" "}
                 </td>
                 {/* <td>Balance per Active Summary</td> */}
-                <td>{data.balance_per_active_summary_bs}</td>
-                <td>{data.balance_per_active_summary_1}</td>
-                <td>{data.balance_per_active_summary_2}</td>
-                <td>{data.balance_per_active_summary_3}</td>
+                <td>{NumberFormatUSD(data.balance_per_active_summary_bs)}</td>
+                <td>{NumberFormatUSD(data.balance_per_active_summary_1)}</td>
+                <td>{NumberFormatUSD(data.balance_per_active_summary_2)}</td>
+                <td>{NumberFormatUSD(data.balance_per_active_summary_3)}</td>
               </tr>
 
               <tr>
                 <td className={styles.cellWithButton}>New Accounts Summary </td>
                 {/* <td>New Accounts Summary</td> */}
-                <td>{data.new_accounts_summary_bs}</td>
-                <td>{data.new_accounts_summary_1}</td>
-                <td>{data.new_accounts_summary_2}</td>
-                <td>{data.new_accounts_summary_3}</td>
+                <td>{NumberFormat(data.new_accounts_summary_bs)}</td>
+                <td>{NumberFormat(data.new_accounts_summary_1)}</td>
+                <td>{NumberFormat(data.new_accounts_summary_2)}</td>
+                <td>{NumberFormat(data.new_accounts_summary_3)}</td>
               </tr>
 
               <tr>
                 <td className={styles.cellWithButton}>EOP Accounts Summary </td>
                 {/* <td>EOP Accounts Summary</td> */}
-                <td>{data.eop_accounts_summary_bs}</td>
-                <td>{data.eop_accounts_summary_1}</td>
-                <td>{data.eop_accounts_summary_2}</td>
-                <td>{data.eop_accounts_summary_3}</td>
+                <td>{NumberFormat(data.eop_accounts_summary_bs)}</td>
+                <td>{NumberFormat(data.eop_accounts_summary_1)}</td>
+                <td>{NumberFormat(data.eop_accounts_summary_2)}</td>
+                <td>{NumberFormat(data.eop_accounts_summary_3)}</td>
               </tr>
 
               <tr>
                 <td className={styles.cellWithButton}>Applications Summary </td>
                 {/* <td>Applications Summary</td> */}
-                <td>{data.applications_summary_bs}</td>
-                <td>{data.applications_summary_1}</td>
-                <td>{data.applications_summary_2}</td>
-                <td>{data.applications_summary_3}</td>
+                <td>{NumberFormat(data.applications_summary_bs)}</td>
+                <td>{NumberFormat(data.applications_summary_1)}</td>
+                <td>{NumberFormat(data.applications_summary_2)}</td>
+                <td>{NumberFormat(data.applications_summary_3)}</td>
               </tr>
 
               <tr>
@@ -382,10 +395,10 @@ const Desktop3 = () => {
                   Average Actives Summary{" "}
                 </td>
                 {/* <td>Average Actives Summary</td> */}
-                <td>{data.average_actives_summary_bs}</td>
-                <td>{data.average_actives_summary_1}</td>
-                <td>{data.average_actives_summary_2}</td>
-                <td>{data.average_actives_summary_3}</td>
+                <td>{NumberFormat(data.average_actives_summary_bs)}</td>
+                <td>{NumberFormat(data.average_actives_summary_1)}</td>
+                <td>{NumberFormat(data.average_actives_summary_2)}</td>
+                <td>{NumberFormat(data.average_actives_summary_3)}</td>
               </tr>
 
               <tr>
@@ -455,7 +468,7 @@ const Desktop3 = () => {
           onClick={handleSimulateClick}
         />
         <div className={styles.barchild}>
-          <BarGraph
+          <BarGraphNum
             onUpdate={() => handleUpdate()}
             className={styles.bareach}
             datae={[
@@ -464,9 +477,9 @@ const Desktop3 = () => {
               data.internal_sales_summary_2,
               data.internal_sales_summary_3,
             ]}
-            label={"Internal Sales Summary"}
+            label={"Internal Sales Summary (in $ Million)"}
           />
-          <BarGraph
+          <BarGraphNum
             className={styles.bareach}
             onUpdate={() => handleUpdate()}
             datae={[
@@ -475,11 +488,11 @@ const Desktop3 = () => {
               data.external_sales_summary_2,
               data.external_sales_summary_3,
             ]}
-            label={"External Sales Summary"}
+            label={"External Sales Summary (in $ Million)"}
           />
         </div>
         <div className={styles.barchild}>
-          <BarGraph
+          <BarGraphNum
             onUpdate={() => handleUpdate()}
             className={styles.bareach}
             datae={[
@@ -488,7 +501,7 @@ const Desktop3 = () => {
               data.sales_summary_2,
               data.sales_summary_3,
             ]}
-            label={"Sales Summary"}
+            label={"Sales Summary (in $ Million)"}
           />
           <BarGraph
             onUpdate={() => handleUpdate()}
@@ -503,7 +516,7 @@ const Desktop3 = () => {
           />
         </div>
         <div className={styles.barchild}>
-          <BarGraph
+          <BarGraphNum
             onUpdate={() => handleUpdate()}
             datae={[
               data.enr_summary_bs,
@@ -511,9 +524,9 @@ const Desktop3 = () => {
               data.enr_summary_2,
               data.enr_summary_3,
             ]}
-            label={"ENR Summary"}
+            label={"ENR Summary (in $ Million)"}
           />
-          <BarGraph
+          <BarGraphNum
             onUpdate={() => handleUpdate()}
             datae={[
               data.anr_summary_bs,
@@ -521,11 +534,11 @@ const Desktop3 = () => {
               data.anr_summary_2,
               data.anr_summary_3,
             ]}
-            label={"ANR Summary"}
+            label={"ANR Summary (in $ Million)"}
           />
         </div>
         <div className={styles.barchild}>
-          <BarGraph
+          <BarGraphNum
             onUpdate={() => handleUpdate()}
             datae={[
               data.merchant_sales_summary_bs,
@@ -533,7 +546,7 @@ const Desktop3 = () => {
               data.merchant_sales_summary_2,
               data.merchant_sales_summary_3,
             ]}
-            label={"Merchant Sales Summary"}
+            label={"Merchant Sales Summary (in $ Million)"}
           />
           <BarGraph
             onUpdate={() => handleUpdate()}
@@ -555,9 +568,9 @@ const Desktop3 = () => {
               data.transactions_k_summary_2,
               data.transactions_k_summary_3,
             ]}
-            label={"Transactions Summary"}
+            label={"Transactions Summary (in 1000)"}
           />
-          <BarGraph
+          <BarGraphNum
             onUpdate={() => handleUpdate()}
             datae={[
               data.average_ticket_summary_bs,
@@ -569,7 +582,7 @@ const Desktop3 = () => {
           />
         </div>
         <div className={styles.barchild}>
-          <BarGraph
+          <BarGraphNum
             onUpdate={() => handleUpdate()}
             datae={[
               data.sales_per_active_summary_bs,
@@ -579,7 +592,7 @@ const Desktop3 = () => {
             ]}
             label={"Sales per Active Summary"}
           />
-          <BarGraph
+          <BarGraphNum
             onUpdate={() => handleUpdate()}
             datae={[
               data.balance_per_active_summary_bs,
@@ -706,6 +719,19 @@ const Desktop3 = () => {
             ]}
           />
           <h2>Year 3</h2>
+        </div>
+        <hr />
+        <div className={styles.lastGraph}>
+          <BarGraph
+            onUpdate={() => handleUpdate()}
+            datae={[
+              data.total_average_balance_summary_bs,
+              data.total_average_balance_summary_1,
+              data.total_average_balance_summary_2,
+              data.total_average_balance_summary_3,
+            ]}
+            label={"Total Average Balance Summary"}
+          />
         </div>
       </div>
     </>

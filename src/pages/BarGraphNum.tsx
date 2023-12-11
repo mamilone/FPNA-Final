@@ -7,7 +7,7 @@ import {
   Legend,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import React, { useState, memo } from "react";
+import React, { memo } from "react";
 
 import { Bar } from "react-chartjs-2";
 
@@ -20,8 +20,12 @@ ChartJS.register(
   ChartDataLabels
 );
 
+const NumberFormat = (value) =>
+  new Intl.NumberFormat("en-US", {
+    style: "decimal",
+  }).format(value);
+
 const BarGraphNum = ({ datae, label }) => {
-  console.log(datae, label, "Hellooo");
   if (datae[0] == undefined || null) return null;
   const option = {
     responsive: true,
@@ -29,32 +33,47 @@ const BarGraphNum = ({ datae, label }) => {
       legend: {
         labels: {
           font: {
-            size: 18,
+            size: 25,
           },
         },
       },
       ChartDataLabels,
+      datalabels: {
+        color: "#000000",
+        font: {
+          size: 20,
+          weight: 600,
+        },
+        formatter: function (value, context) {
+          return NumberFormat(value);
+        },
+      },
     },
-    // scales: {
-    //   y: {
-    //     ticks: {
-    //       // Include a dollar sign in the ticks
-    //       callback: function (value, index, ticks) {
-    //         console.log("value", value, "ticks", ticks);
-    //         return value;
-    //       },
-    //     },
-    //   },
-    // },
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 20,
+          },
+        },
+      },
+      y: {
+        ticks: {
+          font: {
+            size: 20,
+          },
+        },
+      },
+    },
   };
 
   const data = {
-    labels: ["baseline", "year 1", "year 2", "year 3"],
+    labels: ["Baseline", "year 1", "year 2", "year 3"],
     datasets: [
       {
         label: label,
         data: datae,
-        backgroundColor: "rgba(54, 162, 235, 0.7)",
+        backgroundColor: "rgba(44, 152, 245, 0.9)",
       },
     ],
   };

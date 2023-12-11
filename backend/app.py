@@ -399,26 +399,26 @@ def calculation_logic(updated_data, post):
             endind_month = 'Month ' + str(i*12)
             
             internal_sales_summary = m1.loc['Internal Sales',starting_month : endind_month].sum() / 1000000
-            summary_dict['internal_sales_summary_' + yr] = "$"+ str(round(internal_sales_summary, 0))
+            summary_dict['internal_sales_summary_' + yr] = round(internal_sales_summary, 0)
             
             external_sales_summary = m1.loc['External Sales',starting_month : endind_month].sum() / 1000000
-            summary_dict['external_sales_summary_' + yr] = "$"+ str(round(external_sales_summary, 0))
+            summary_dict['external_sales_summary_' + yr] =  round(external_sales_summary, 0)
 
             sales_summary = m1.loc['Total Sales', starting_month : endind_month].sum() / 1000000
-            summary_dict['sales_summary_' + yr] = "$"+ str(round(sales_summary, 0))
+            summary_dict['sales_summary_' + yr] = round(sales_summary, 0)
 
             payment_rate_summary = m1.loc['Payments',starting_month : endind_month].sum() / m1.loc['BOP Balance', starting_month : endind_month].sum()
             summary_dict['payment_rate_summary_' + yr] = str(round(payment_rate_summary*100, 0))+"%"
             
             enr_summary = m1.loc['EOP Balance', endind_month] / 1000000
-            summary_dict['enr_summary_' + yr] = "$"+ str(round(enr_summary, 0))
+            summary_dict['enr_summary_' + yr] = round(enr_summary, 0)
 
             
             anr_summary = m1.loc['Avg Balance', starting_month : endind_month].mean() / 1000000
-            summary_dict['anr_summary_' + yr] = "$"+ str(round(anr_summary, 0))
+            summary_dict['anr_summary_' + yr] = round(anr_summary, 0)
 
             merchant_sales_summary = m1.loc['Merchant Sales', starting_month : endind_month].sum() / 1000000
-            summary_dict['merchant_sales_summary_' + yr] = "$"+ str(round(merchant_sales_summary, 0))
+            summary_dict['merchant_sales_summary_' + yr] = round(merchant_sales_summary, 0)
 
             credit_penetration_summary = internal_sales_summary / merchant_sales_summary
             summary_dict['credit_penetration_summary_' + yr] = str(round(credit_penetration_summary*100, 0)) + "%"
@@ -427,7 +427,7 @@ def calculation_logic(updated_data, post):
             summary_dict['transactions_k_summary_' + yr] = round(transactions_k_summary, 0)
             
             average_ticket_summary = 1000 * sales_summary / transactions_k_summary    
-            summary_dict['average_ticket_summary_' +yr] = "$"+ str(round(average_ticket_summary, 0))
+            summary_dict['average_ticket_summary_' +yr] = round(average_ticket_summary, 0)
 
             new_accounts_summary = m1.loc['New Accounts', starting_month : endind_month].sum()
             summary_dict['new_accounts_summary_' +yr] = round(new_accounts_summary, 0)
@@ -445,10 +445,10 @@ def calculation_logic(updated_data, post):
             summary_dict['average_actives_summary_' +yr] = round(average_actives_summary, 0)
             
             sales_per_active_summary = 1000000 * sales_summary / average_actives_summary
-            summary_dict['sales_per_active_summary_' +yr] = "$"+ str(round(sales_per_active_summary, 0))
+            summary_dict['sales_per_active_summary_' +yr] = round(sales_per_active_summary, 0)
             
             balance_per_active_summary = 1000000 * anr_summary / average_actives_summary
-            summary_dict['balance_per_active_summary_' +yr] = "$"+ str(round(balance_per_active_summary, 0))
+            summary_dict['balance_per_active_summary_' +yr] = round(balance_per_active_summary, 0)
             
             active_rate_summary = average_actives_summary / eop_accounts_summary
             summary_dict['active_rate_summary_' +yr] = str(round(active_rate_summary*100, 0)) + "%"
@@ -508,26 +508,26 @@ def calculation_logic(updated_data, post):
             endind_month = 'Month ' + str(i*12)
             
             internal_sales_summary = m1.loc['Internal Sales',starting_month : endind_month].sum() / 1000000
-            summary_dict['internal_sales_summary_' + yr] = "$"+ str(round(internal_sales_summary, 0))
+            summary_dict['internal_sales_summary_' + yr] =  round(internal_sales_summary, 0)
             
             external_sales_summary = m1.loc['External Sales',starting_month : endind_month].sum() / 1000000
-            summary_dict['external_sales_summary_' + yr] = "$"+ str(round(external_sales_summary, 0))
+            summary_dict['external_sales_summary_' + yr] =  round(external_sales_summary, 0)
 
             sales_summary = m1.loc['Total Sales', starting_month : endind_month].sum() / 1000000
-            summary_dict['sales_summary_' + yr] = "$"+ str(round(sales_summary, 0))
+            summary_dict['sales_summary_' + yr] = round(sales_summary, 0)
 
             payment_rate_summary = m1.loc['Payments',starting_month : endind_month].sum() / m1.loc['BOP Balance', starting_month : endind_month].sum()
             summary_dict['payment_rate_summary_' + yr] = str(round(payment_rate_summary*100, 0))+"%"
             
             enr_summary = m1.loc['EOP Balance', endind_month] / 1000000
-            summary_dict['enr_summary_' + yr] = "$"+ str(round(enr_summary, 0))
+            summary_dict['enr_summary_' + yr] = round(enr_summary, 0)
 
             
             anr_summary = m1.loc['Avg Balance', starting_month : endind_month].mean() / 1000000
-            summary_dict['anr_summary_' + yr] = "$"+ str(round(anr_summary, 0))
+            summary_dict['anr_summary_' + yr] = round(anr_summary, 0)
 
             merchant_sales_summary = m1.loc['Merchant Sales', starting_month : endind_month].sum() / 1000000
-            summary_dict['merchant_sales_summary_' + yr] = "$"+ str(round(merchant_sales_summary, 0))
+            summary_dict['merchant_sales_summary_' + yr] = round(merchant_sales_summary, 0)
 
             credit_penetration_summary = internal_sales_summary / merchant_sales_summary
             summary_dict['credit_penetration_summary_' + yr] = str(round(credit_penetration_summary*100, 0)) + "%"
@@ -536,7 +536,7 @@ def calculation_logic(updated_data, post):
             summary_dict['transactions_k_summary_' + yr] = round(transactions_k_summary, 0)
             
             average_ticket_summary = 1000 * sales_summary / transactions_k_summary    
-            summary_dict['average_ticket_summary_' +yr] = "$"+ str(round(average_ticket_summary, 0))
+            summary_dict['average_ticket_summary_' +yr] = round(average_ticket_summary, 0)
 
             new_accounts_summary = m1.loc['New Accounts', starting_month : endind_month].sum()
             summary_dict['new_accounts_summary_' +yr] = round(new_accounts_summary, 0)
@@ -554,10 +554,10 @@ def calculation_logic(updated_data, post):
             summary_dict['average_actives_summary_' +yr] = round(average_actives_summary, 0)
             
             sales_per_active_summary = 1000000 * sales_summary / average_actives_summary
-            summary_dict['sales_per_active_summary_' +yr] = "$"+ str(round(sales_per_active_summary, 0))
+            summary_dict['sales_per_active_summary_' +yr] = round(sales_per_active_summary, 0)
             
             balance_per_active_summary = 1000000 * anr_summary / average_actives_summary
-            summary_dict['balance_per_active_summary_' +yr] = "$"+ str(round(balance_per_active_summary, 0))
+            summary_dict['balance_per_active_summary_' +yr] = round(balance_per_active_summary, 0)
             
             active_rate_summary = average_actives_summary / eop_accounts_summary
             summary_dict['active_rate_summary_' +yr] = str(round(active_rate_summary*100, 0)) + "%"

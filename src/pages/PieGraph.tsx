@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const PieGraph = ({ datae }) => {
+const PieGraph = ({ datae }) => {
   if (datae[0] == undefined || null) return null;
   if (datae[0]?.includes("%")) {
     datae?.forEach((element, index) => {
@@ -34,7 +34,19 @@ export const PieGraph = ({ datae }) => {
     ],
   };
 
-  const options = {};
+  const option = {
+    plugins: {
+      datalabels: {
+        color: "#000000",
+        font: {
+          size: 20,
+          weight: 600,
+        },
+      },
+    },
+  };
 
-  return <Pie data={data} options={options} />;
+  return <Pie options={option} data={data} />;
 };
+
+export default memo(PieGraph);

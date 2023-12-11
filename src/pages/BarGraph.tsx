@@ -7,7 +7,7 @@ import {
   Legend,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import React, { useState, memo } from "react";
+import React, { memo } from "react";
 
 import { Bar } from "react-chartjs-2";
 
@@ -21,52 +21,58 @@ ChartJS.register(
 );
 
 const BarGraph = ({ datae, label }) => {
-  console.log(datae, label);
   if (datae[0] == undefined || null) return null;
-  if (datae[0]?.includes("$")) {
-    datae?.forEach((element: string, index: string | number) => {
-      datae[index] = Number(element.split("$")[1]);
-    });
-    //check, remove and convert the string in array to numbers - "$43" -> 43
-    //required for graph input
-  } else if (datae[0]?.includes("%")) {
+  //check, remove and convert the string in array to numbers - "43%" -> 43
+  //required for graph input
+  if (datae[0]?.includes("%")) {
     datae?.forEach((element: string, index: string | number) => {
       datae[index] = Number(element.split("%")[0]);
     });
   }
-  console.log(datae, label, "Helloo");
   const option = {
     responsive: true,
     plugins: {
       legend: {
         labels: {
           font: {
-            size: 18,
+            size: 25,
           },
         },
       },
       ChartDataLabels,
+      datalabels: {
+        color: "#000000",
+        font: {
+          size: 20,
+          weight: 600,
+        },
+      },
     },
-    // scales: {
-    //   y: {
-    //     ticks: {
-    //       // Include a dollar sign in the ticks
-    //       callback: function (value, index, ticks) {
-    //         console.log("value", value, "ticks", ticks);
-    //         return value;
-    //       },
-    //     },
-    //   },
-    // },
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 20,
+          },
+        },
+      },
+      y: {
+        ticks: {
+          font: {
+            size: 20,
+          },
+        },
+      },
+    },
   };
 
   const data = {
-    labels: ["baseline", "year 1", "year 2", "year 3"],
+    labels: ["Baseline", "year 1", "year 2", "year 3"],
     datasets: [
       {
         label: label,
         data: datae,
-        backgroundColor: "rgba(54, 162, 235, 0.7)",
+        backgroundColor: "rgba(44, 152, 245, 0.9)",
       },
     ],
   };

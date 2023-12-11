@@ -65,7 +65,6 @@ const Desktop2 = () => {
     axios
       .get("http://localhost:5000/calculate")
       .then((response) => {
-        console.log(response.data);
         setCalculationDone(true);
         setIsStepsVisible(true); // Display steps after calculation
       })
