@@ -6,6 +6,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import json
 
+pd.options.mode.chained_assignment = None
+
 app = Flask(__name__)
 CORS(app)
 
@@ -37,7 +39,7 @@ def calculation_logic(updated_data, post):
     # './uploads/FPA Model Input File.csv'
     model1 = pd.read_csv(file_path, index_col='Driver Model') #model1 is dataframe
     m1 = model1.head(25) #m1 is dataframe
-    print('\n\n\nreading data success\n\n')
+    print('\nreading data success\n')
 
     for i in range(1,13):
         month = 'Month ' + str(i)
@@ -250,20 +252,7 @@ def calculation_logic(updated_data, post):
             floating_apr_summary_yn[i] = updated_data[8]['values'][i]
             fixed_apr_summary_yn[i] = updated_data[9]['values'][i]
             promo_apr_summary_yn[i] = updated_data[10]['values'][i]
-
-    print("\n\n\nwelcome manish you are outside of post!!!!\n\n") 
-    print(external_sales_summary_yn)
-    print(payment_rate_summary_yn)
-    print(merchant_sales_summary_yn)
-    print(credit_penetration_summary_yn)
-    print(transaction_k_summary_yn)
-    print(applications_summary_yn)
-    print(approval_rate_summary_yn)
-    print(active_rate_summary_yn)
-    print(floating_apr_summary_yn)
-    print(fixed_apr_summary_yn)
-    print(promo_apr_summary_yn)
-    print('\n\n')  
+    #outside POST
 
     for i in range(13, 49):
         month = 'Month '+ str(i)
@@ -467,7 +456,7 @@ def calculation_logic(updated_data, post):
             
             total_average_balance_summary = floating_apr_summary + fixed_apr_summary + promo_apr_summary + transactors_summary
             summary_dict['total_average_balance_summary_' +yr] = str(round(total_average_balance_summary*100, 0)) + "%"
-        print(summary_dict)
+
         for i in range(2,5):
             yr = str(i-1)
             starting_month = 'Month '+ str(i*12-11)
@@ -496,6 +485,7 @@ def calculation_logic(updated_data, post):
             summary_dict['promo_apr_summary_' +yr] = summary_dict['promo_apr_summary_bs']
             summary_dict['transactors_summary_' +yr] = summary_dict['transactors_summary_bs']
             summary_dict['total_average_balance_summary_' +yr] = summary_dict['total_average_balance_summary_bs']
+
     
     elif zero_count!=33:
         for i in range(1,5):
@@ -580,9 +570,6 @@ def calculation_logic(updated_data, post):
     DOWNLOAD_FOLDER = 'outputfiles'
     app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
     m1.to_csv(os.path.join(app.config['DOWNLOAD_FOLDER'], "Output.csv"))
-    for key, values in summary_dict.items():
-        print(key, values)
-        print("\n")
     return summary_dict
 
 
@@ -629,14 +616,6 @@ def calculate_File():
         return 'File not found', 404
     
 
-@app.route('/members')
-def members():
- 
-    # Returning an api for showing in  reactjs
-    return {'members':["member1manish", "member2", "member3"]}
-
- 
-
 @app.route('/outputfiles/<filename>', methods=['GET'])
 def download_file(filename):
     file_path = os.path.join(app.config['OUTPUT_FOLDER'], filename)
@@ -676,9 +655,6 @@ def get_uploaded_file(filename):
         return send_file(os.path.join(app.config['UPLOAD_FOLDER'], filename), as_attachment=True)
     except FileNotFoundError:
         return 'File not found'
-
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0", port=5000)
 
 @app.route('/update-data', methods=['POST'])
 def update_data():
