@@ -11,7 +11,7 @@ VSCode  : https://code.visualstudio.com/Download , download setup for windows an
 
 Note: if you're in a part of setup which is not specified in tutorial, just press "Next".
 
-1. Download the code folders/files from https://github.com/manishjayswal/FPA_final
+1. Download the code folders/files from: https://github.com/mamilone/FPNA-Final
    1.1 How to download : Once entering site, press "code" button highlighted in green and then press "download zip". Then Extract the downloaded zip.
    1.2 Open VS Code, and then open the folder in VS Code.
 
@@ -38,14 +38,14 @@ Note: Once the initial setup is completed, then you no longer need to create vir
 5. In case you want to stop the backend or frontend server: press "Ctrl + c" in the respective terminal
 
 6. To Deploy Backend on web(Azure):
-   6.1. Download the code from https://github.com/manishjayswal/FPA_final
+   6.1. Download the code from https://github.com/mamilone/FPNA-Final
    6.2. Follow the steps similart to the one in this blog: https://shorturl.at/cryY1
-   6.3. while clonning the code repository use this https://github.com/manishjayswal/FPA_final.git
+   6.3. while clonning the code repository use this https://github.com/mamilone/FPNA-Final.git
    6.4. After successful deployment you will get one link. Now add /calcm to end of that link and browse, you will get summary output from backend.
         (This is to ensure that your backend system is active and running)
 
 7. To Deploy Frontend on web(Vercel):
-   7.1. If not already downloaded, Download the code from https://github.com/manishjayswal/FPA_final 
+   7.1. If not already downloaded, Download the code from https://github.com/mamilone/FPNA-Final 
    7.2. Replace all the "https://fpasimulate.azurewebsites.net" with the link of your backend( in the files: package.json, Desktop1.js, Desktop3.js)
    7.3. Create an account on vercel using your github account.
    7.4. Upload the code on your github account and provide this code repository to vercel.
