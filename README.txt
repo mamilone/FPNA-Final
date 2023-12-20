@@ -20,12 +20,12 @@ Note: if you're in a part of setup which is not specified in tutorial, just pres
    3.2. Change the directory to FPA_final/backend (command: cd backend)
    3.3. To create virtual environment, run this command in Bash terminal: py -m venv .venv
    3.4. To activate the virtual environment, run this command in Bash terminal: source .venv/Scripts/activate
-   3.5. Once the virtual environment is activate, you can see "(.venv)" just on the left of the terminal in current line
+   3.5. Once the virtual environment is activated, you can see "(.venv)" just on the left of the terminal in current line
    3.6. To install all the required libraries, run: pip install -r requirements.txt
    3.7. Now your Backend is ready, you can start the flask app by the command: flask run
    3.8. To browser your backend: http://localhost:5000/calcm
 
-Note: Once the initial setup is completed, then you no longer need to create virtual environment and install dependencies.
+Note: Once the initial setup is completed, then you no longer need to create virtual environment or install dependencies.
       So, to run it again follow the step 3 excluding 3.3 and 3.6.
 
 4. To run the Frontend in localhost:       
